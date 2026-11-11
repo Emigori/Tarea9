@@ -1,8 +1,22 @@
-name: Work 1 Dorx
-on: [push]
-jobs: 
-  build:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Print Something
-      run: echo "Hola Pitaya!"
+on: push
+jobs:
+  build-none:
+  runs-on: ubuntu-latest
+  container: node:24
+
+  steps:
+    - name: Verificar entorno
+      run: |
+        echo "Ejecutando dentro de Docker"
+        node --version
+        npm --version
+        
+
+    - name: Descargar repositorio
+      uses: actions/checkout@v4
+
+    - name: Instalar dependencias
+      run: npm ci
+
+    - name: Ejecutar aplicación
+      run: node app.js
