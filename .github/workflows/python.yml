@@ -1,0 +1,18 @@
+name: Python en contenedor
+on: push
+jobs:
+  build-python:
+    runs-on: ubuntu-latest
+    container: python:3.12
+    steps:
+      - name: Verificar entorno
+        run: |
+          echo "Ejecutando dentro de un contenedor de Python"
+          python --version
+          pip --version
+
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+
+      - name: Ejecutar aplicacion
+        run: python app.py
