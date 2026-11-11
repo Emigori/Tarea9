@@ -1,22 +1,22 @@
 on: push
 jobs:
   build-none:
-  runs-on: ubuntu-latest
-  container: node:24
+    runs-on: ubuntu-latest
+    container: node:24
 
-  steps:
-    - name: Verificar entorno
-      run: |
-        echo "Ejecutando dentro de Docker"
-        node --version
-        npm --version
+    steps:
+      - name: Verificar entorno
+        run: |
+          echo "Ejecutando dentro de Docker"
+          node --version
+          npm --version
         
 
-    - name: Descargar repositorio
-      uses: actions/checkout@v4
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
 
-    - name: Instalar dependencias
-      run: npm ci
+      - name: Instalar dependencias
+        run: npm ci
 
-    - name: Ejecutar aplicación
-      run: node app.js
+      - name: Ejecutar aplicación
+        run: node app.js
