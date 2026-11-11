@@ -16,7 +16,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Instalar dependencias
-        run: npm ci
+        run: npm install moment
 
       - name: Ejecutar aplicación
         run: node app.js
