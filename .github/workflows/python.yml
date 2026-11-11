@@ -1,5 +1,5 @@
 name: Python en contenedor
-on: push
+on: [push, workflow_dispatch]
 jobs:
   build-python:
     runs-on: ubuntu-latest
